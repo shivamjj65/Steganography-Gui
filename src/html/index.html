@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <title>Ssshh !</title>
+  <link rel="icon" href="../images/app_icon3.png" type="image/x-icon" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body></body>
+
+<!-- IMAGE SELECTION -->
+<div class="jumbotron text-center" id="chooseImage">
+  <div class="logo">
+    <img src="../images/logo.png" alt="LOGO" /></a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <span>Choose Image</span>
+    </li>
+  </ul>
+  <div>
+    <div id="canvas1">
+      <div id="holder1" style="color: beige">Drag your image here</div>
+      <img id="output1" src="" alt="Selected Image will be shown here" />
+      <p id="myImage1"></p>
+    </div>
+  </div>
+  <a class="arrow-wrap1" href="#selectText" id="arrow1">
+    <span class="arrow"></span>
+  </a>
+</div>
+
+<!-- TEXT SELECTION -->
+
+<div class="jumbotron text-center" id="selectText">
+  <div class="logo">
+    <img src="../images/logo.png" alt="LOGO" /></a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <span>Enter Text Message</span>
+    </li>
+  </ul>
+  <div>
+    <h2>Type message in box</h2>
+    <textarea id="message" cols="30" placeholder="Type Text Here"></textarea>
+  </div>
+  <input class="buttons" id="okMessage" type="button" value="Ok" onclick="getMessage()" />
+  <h2>Or select text file</h2>
+  <input class="buttons" id="selectMessage" type="button" name="myFile" onClick="importText()" value="Select Text File" />
+  <p id="filename"></p>
+  <a class="arrow-wrap2" href="#selectKey" id="arrow2">
+    <span class="arrow"></span>
+  </a>
+</div>
+
+<!-- KEY SELECTION -->
+<div class="jumbotron text-center" id="selectKey">
+  <div class="logo">
+    <img src="../images/logo.png" alt="LOGO" /></a>
+  </div>
+  <ul class="navbar-nav" id="keytitle">
+    <li class="nav-item">
+      <span>Enter Secret Key</span>
+    </li>
+  </ul>
+  <div class="enterKey">
+    <h2>Type key in the box</h2>
+    <input type="password" id="secretkey" placeholder="Type Key Here" />
+    <br>
+    <input class="buttons" id="saveKey" type="button" value="Encode" onclick="getKey()" />
+    <input class="buttons" id="saveKey" type="button" value="Decode" onclick="saveKeyFile()" />
+
+    <a class="arrow-wrap3" href="#send_rec" id="arrow3">
+      <span class="arrow"></span>
+    </a>
+  </div>
+</div>
+<div class="jumbotron text-center" id="send_rec">
+  <div class="logo">
+    <img src="../images/logo.png" alt="LOGO" /></a>
+  </div>
+  <ul class="navbar-nav" id="kafkaa">
+    <li class="nav-item">
+      <span>Send / Recieve Image</span>
+    </li>
+  </ul>
+  <div class="selectImg" id="tra">
+    <div class="row">
+      <div class="col sending">
+        <h2 id="sending">Select Image to send</h2>
+        <div id="canvas2">
+          <div id="holder2" style="color: beige">Drag your file here</div>
+          <img id="output2" src="" alt="Selected Image will be shown here" />
+          <p id="myImage2"></p>
+          <button class="buttons">Send</button>
+        </div>
+
+      </div>
+      <div class="col recieving">
+        <h2 id="recieving">Recieve Image</h2>
+        <div id="canvas3">
+        <input class="buttons" id="selectImage" type="button" value="Select Topic" onclick=""
+          accept="image/jpeg, image/png, image/bmp" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+
+</body>
+
+</html>
