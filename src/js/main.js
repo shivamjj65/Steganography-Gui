@@ -1,9 +1,9 @@
+
 /*--------------------------------SELECT IMAGE-------------------------------*/
-  var filePath = null;
+/*  var filePath = null;
   var fileName = null;
   
-  document.addEventListener
-  ('drop', function (e) 
+  document.addEventListener('drop', function (e) 
   {
     e.preventDefault();
     e.stopPropagation();
@@ -28,16 +28,16 @@
     e.stopPropagation();
   });
   
-
+*/
 /*--------------------------------SELECT MESSAGE-------------------------------*/
 //function to save text from box
 function getMessage() {
   // get data from textBox
-  const msg = document.getElementById("message");
+  const m = document.getElementById("message");
   // store data
-  let data = "" + msg.value;
+  let msg = "" + m.value;                  //msg has message in it
   // Convert the text to BLOB.
-  const textToBLOB = new Blob([data], { type: "text/plain" });
+  const textToBLOB = new Blob([msg], { type: "text/plain" });
   const sFileName = "message.txt"; // The file to save the data.
 
   let newLink = document.createElement("a");
@@ -58,13 +58,15 @@ function getMessage() {
 
 /*--------------------------------SELECT KEY-------------------------------*/
 //function to save key from box
+var valueOfKey;
 function getKey() {
   // get data from textBox
-  const msg = document.getElementById("secretkey");
+  const k = document.getElementById("secretkey");
   // store data
-  let data = "" + msg.value;
+  let skey = "" + k.value;              //skey has key in it
+  valueOfKey = 'shivam';
   // Convert the text to BLOB.
-  const textToBLOB = new Blob([data], { type: "text/plain" });
+  const textToBLOB = new Blob([skey], { type: "text/plain" });
   const sFileName = "key.txt"; // The file to save the data.
 
   let newLink = document.createElement("a");
@@ -81,28 +83,50 @@ function getKey() {
   newLink.click();
 }
 
-//function to take text file
-function importText() {
-  let input = document.createElement("input");
-  input.type = "file";
-  input.onchange = () => {
-    let files = Array.from(input.files);
-    console.log(files);
-    document.getElementById("filename").innerHTML = "Text File Selected  ";
-  };
-  input.click();
-}
-
-
-
 
 /*--------------------------------SEND KEY-------------------------------*/
 /*--------------------------------SEND - REC IMAGE-----------------------*/
+/*--------------------------------SELECT IMAGE-------------------------------*/
+
+//function to take image
+/*var imagePath;
+var imageName;
+document.getElementById("holder2").addEventListener("drop",function(x)
+{
+  x.preventDefault();
+  x.stopPropagation();
+  for (let i of x.dataTransfer.files) {
+    console.log('Image(s) you selected here: ', i.path);
+    imagePath = i.path;
+    imageName = imagePath.split('.');
+    console.log(imageName);
+    break;
+  }
+
+  
+  //console.log('File you dragged here: ',filePath);
+  document.getElementById('output2').src = imagePath;
+  document.getElementById('myImage2').innerHTML = "File Path : " + imagePath;
+  
+}
+);
 
 
+*/
+/*---------------------------------Js to YAML----------------------------*/
+// write.js
+const fs = require('fs');
+const yaml = require('js-yaml');
+
+let configuration = {
+  valueOfKey
+};
+
+let yamlStr = yaml.dump(configuration);
+fs.writeFileSync('data-out.yaml', yamlStr, 'utf8');
 
 
-/*----------------------------------ARROW--------------------------------*/
+/*----------------------------------ARROW--------------------------------
 let animation = function(){
   if(window.isInAnim)
     return;
@@ -191,3 +215,4 @@ let animation = function(){
 document.getElementsByClassName("arrow-wrap1")[0].addEventListener("mouseenter",animation);
 document.getElementsByClassName("arrow-wrap2")[0].addEventListener("mouseenter",animation);
 document.getElementsByClassName("arrow-wrap3")[0].addEventListener("mouseenter",animation);
+*/
