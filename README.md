@@ -1,4 +1,5 @@
 # Steganography-Gui
+# Only frontend gui is available in this repository, backend driving code is yet to be pushed.
 Gui for Steganograpy software using Electron
 
 - node js and its modules required to run
